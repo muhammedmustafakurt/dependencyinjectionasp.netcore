@@ -1,0 +1,89 @@
+﻿<!-- Views/Transport/Bus.cshtml -->
+@model string
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bus Service</title>
+    <style>
+        body {
+            padding-top: 100px;
+            background: linear-gradient(124deg, #b2e082, #97c962);
+        }
+        #road {
+            width: auto;
+            height: 80px;
+            background-color: gray;
+            margin: 55px 10px 0 10px;
+            border-radius: 2px;
+        }
+        .bus {
+            display: inline-block;
+            width: 90px;
+            height: 45px;
+            margin: 20px 0px 0px 10px;
+            background-color: red;
+            border-radius: 17px 10px 2px 2px;
+            position: relative;
+            animation: mymove 7s infinite normal ease-in-out;
+        }
+        @@keyframes mymove {
+            0% { left: -300px; }
+            50% { left: 600px; }
+            100% { left: 1400px; }
+        }
+        /* Wheels */
+        #whell1, #whell2 {
+            position: absolute;
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            background-color: black;
+            border-radius: 50%;
+            top: 37px;
+        }
+        #whell1 { left: 65px; }
+        #whell2 { left: 10px; }
+
+        #line {
+            width: 1200px;
+            top: 40px;
+            height: 1px;
+            margin: auto;
+            border: 1px dashed white;
+        }
+        #cloud1, #cloud2, #cloud3, #cloud4 {
+            position: absolute;
+            background: url('http://images.clipartpanda.com/clouds-background-png-cloud-edition.png');
+            background-size: 70% 48%;
+            background-repeat: no-repeat;
+        }
+        #cloud1 { animation: cloudy 20s infinite normal linear; }
+        #cloud2 { animation: cloudy2 23s infinite reverse ease-in; opacity: 0.7; }
+        #cloud3 { animation: cloudy3 40s infinite normal linear; opacity: 0.8; }
+        #cloud4 { animation: cloudy4 38s infinite reverse linear; opacity: 1; transform: rotateY(180deg); }
+        @@keyframes cloudy { 0% { left: -100px; } 100% { left: 1320px; } }
+        @@keyframes cloudy2 { 0% { left: -100px; } 100% { left: 1300px; } }
+        @@keyframes cloudy3 { 0% { left: -100px; } 100% { left: 1320px; } }
+        @@keyframes cloudy4 { 0% { left: -100px; } 100% { left: 1300px; } }
+    </style>
+</head>
+<body>
+    <h1>Otobüs servisi</h1>
+    <p>@Model</p>
+
+    <div id="road">
+        <div id="cloud1"></div>
+        <div id="cloud2"></div>
+        <div id="cloud3"></div>
+        <div id="cloud4"></div>
+        <div id="line"></div>
+
+        <div class="bus">
+            <div id="whell1"></div>
+            <div id="whell2"></div>
+        </div>
+    </div>
+</body>
+</html>
